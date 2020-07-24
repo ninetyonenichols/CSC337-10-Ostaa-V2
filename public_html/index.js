@@ -3,3 +3,17 @@
  * Author: Justin Nichols
  * Class: CSC337
  */
+
+/*
+ * Adds a user to the databse.
+ */
+function addUser() {
+  $.ajax({
+    url: '/add/user',
+    method: 'POST',
+    data: {  
+      username: $('#username').val(),
+      password: $('#password').val()
+    }
+  });
+}

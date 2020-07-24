@@ -22,6 +22,36 @@
     </script>
   </head>
   <body>
+    <form>
+      <h1>Add Item</h1>
+      <div class="in-field">
+        <label for="title">Title: </label>
+        <input type="text" id="title">
+      </div>
+      <div class="in-field">
+        <label for="desc">Desc: </label>
+        <input type="text" id="desc">
+      </div>
+      <div class="in-field">
+        <label for="image">Image: </label>
+        <input type="text" id="image">
+      </div>
+      <div class="in-field">
+        <label for="price">Price: </label>
+        <input type="number" id="price">
+      </div>
+      <div class="in-field">
+        <label for="status">Status: </label>
+        <input type="avail" id="avail">
+      </div>
+      <div class="in-field">
+        <label for="seller">Username: </label>
+        <input type="text" id="seller">
+      </div>
+      <div class="in-field">
+        <input type="button" onclick="addItem()" value="Add Item">
+      </div>
+    </form>
   </body>
 </html>
 
