@@ -4,6 +4,10 @@
  * Class: CSC337
  */
 
+h1 {
+  padding: 10px;
+}
+
 form {
   margin: 25px 10px;
 }

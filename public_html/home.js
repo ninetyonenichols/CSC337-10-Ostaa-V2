@@ -7,3 +7,26 @@
  * Class: CSC337
  */
 
+/*
+ * Searches for listings whose description matches a given keyword.
+ */
+function searchListings() {
+}
+
+/*
+ * Displays all of the user's current listings.
+ */
+function viewListings() {
+}
+
+/*
+ * Displays all of the user's current purchases.
+ */
+function viewPurchases() {
+}
+
+/*
+ * Creates a new listing for the user.
+ */
+function createListings() {
+}
