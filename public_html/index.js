@@ -17,3 +17,9 @@ function addUser() {
     }
   });
 }
+
+/*
+ * This function will attempt a user-login.
+ */
+function login() {
+}

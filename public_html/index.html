@@ -22,8 +22,30 @@
     </script>
   </head>
   <body>
+    <h1>Ostaa</h1>
     <form>
-      <h1>Add User</h1>
+      <div id="inField">
+      </div>
+        <h2>Login</h2>
+      <div id="inField">
+        <label for="acct-name">Username: </label>
+        <input type="text" id="acct-name">
+      </div>
+      <div id="inField">
+        <label for="acct-pass">Password: </label>
+        <input type="password" id="acct-pass">
+      </div>
+      <div id="inField">
+        <input type="button" onclick="login()" value="Login">
+      </div>
+      <div id="inField">
+        <p id="loginMsg"></p>
+      </div>
+    </form>
+    <form>
+      <div id="inField">
+        <h2>Create Account</h2>
+      </div>
       <div class="in-field">
         <label for="username">Username: </label>
         <input type="text" id="username">
@@ -33,7 +55,10 @@
         <input type="password" id="password">
       </div>
       <div class="in-field">
-        <input type="button" onclick="addUser()" value="Add User">
+        <input type="button" onclick="addUser()" value="Create">
+      </div>
+      <div id="inField">
+        <p id="creationMsg"></p>
       </div>
     </form>
   </body>
