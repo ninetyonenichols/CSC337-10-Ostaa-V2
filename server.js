@@ -7,9 +7,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
-const host = '64.227.49.233';
-const port = 80;
+const port = 8000;
 
 const app = express();
 const db = mongoose.connection;
@@ -17,6 +17,20 @@ const mongoDBURL = 'mongodb://localhost/ostaa';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+var sessionKeys = {};
+const sessionLength = 100000;
+
+function updateSessions() {
+  let now = Date.now();
+  for (e in sessionKeys) {
+    if (sessionKeys[e][1] < (sessionLength) {
+      delete sessionKeys[e];
+    }
+  }
+}
+
+setInterval(updateSessions, sessionLength)
 
 mongoose.connect(mongoDBURL, { useNewUrlParser: true });
 db.on('error', console.error.bind(console, 'MongoDB connection error.'));
@@ -48,15 +62,53 @@ const urlMod2Mod = {
 }
 
 app
-  .use(express.static('public_html'))
+  .use('/authenticated.html', authenticate)
+  .use('/', express.static('public_html'))
   .get('/get/:monModel', (req, res) => showAllData(req, res))
   .get('/get/:userField/:username', (req, res) => showUserData(req, res))
   .get('/search/users/:keyword', (req, res) => showKeywordUsers(req, res))
   .get('/search/items/:keyword', (req, res) => showKeywordItems(req, res))
+  .post('login', (req, res) => login(req, res))
   .post('/add/user', (req, res) => addUser(req)) 
   .post('/add/item/:username', (req, res) => addItem(req))
   .all('*', (req, res) => res.redirect('/'))
   .listen(port, () => console.log('App listening.'))
+
+/*
+ * This function authenticates the user.
+ */
+function authenticate(req, res, next) {
+  if (Object.keys(req.cookies).length > 0) {
+    let user = req.cookies.login.username;
+    let key = req.cookies.login.key;
+    if (sessionKeys[user][1] == key) { next(); }
+    else { res.redirect('')}
+  } 
+  else { res.redirect('/'); }
+}
+
+/*
+ * This function will attempt a user login
+ */
+function login(req, res) {
+  var name = req.params.username;
+  let user = {
+    username: name,
+    password: req.params.password
+  }
+
+  User.find(user)
+    .exec((results) => { 
+      if ( results.length==1 ) {
+        let sessionKey = Math.floor(Math.random() * 1000);
+        sessionKeys[name] = sessionKey;
+        res.cookie("login", {username: u, key: sessionKey}, { maxAge: sessionLength });
+        res.redirect('/public_html/home.html');
+      } else {
+        console.log('Invalid username or password.');
+      }
+    });
+}
 
 /*
  * This function can provide all user-data or all item-data in the database.

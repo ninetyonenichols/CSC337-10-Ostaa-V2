@@ -22,4 +22,12 @@ function addUser() {
  * This function will attempt a user-login.
  */
 function login() {
+  $.ajax({
+    url: '/login',
+    method: 'POST',
+    data {
+      username: $('#acct-name').val() ,
+      password: $('#acct-pass').val()
+    }
+  });
 }
