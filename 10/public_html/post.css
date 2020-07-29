@@ -4,8 +4,17 @@
  * Class: CSC337
  */
 
+body {
+  background-color: lightblue;  
+}
+
 h1 {
-  padding: 10px;
+  padding: 10px 20px;
+  color: darkblue;
+}
+
+h2 {
+  color: darkblue;  
 }
 
 form {

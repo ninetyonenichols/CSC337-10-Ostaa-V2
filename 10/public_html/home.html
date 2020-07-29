@@ -21,27 +21,30 @@
       crossorigin="anonymous">
     </script>
   </head>
-  <body>
+  <body onload="buildWelcome()">
     <header>
       <h1>Ostaa</h1>
     </header>
-    <div id="mainContent">
-      <div id="inputArea">
-        <div id="inField">
+    <div id="main-content">
+      <div id="input-area">
+        <div class="in-field">
+          <h2 id="welcome"></h2>
+        </div>
+        <div class="in-field">
           <input type="text" id="search-bar">
           <input type="button" onclick="searchListings()" value="Search Listings">
         </div>  
-        <div id="inField">
+        <div class="in-field">
           <input type="button" onclick="viewListings()" value="View your listings">
         </div>  
-        <div id="inField">
+        <div class="in-field">
           <input type="button" onclick="viewPurchases()" value="View your purchases">
         </div>  
-        <div id="inField">
+        <div class="in-field">
           <input type="button" onclick="createListing()" value="Create a listing">
         </div>  
       </div>
-      <div id="listingsArea">
+      <div id="listings-area">
       </div>
     </div>
   </body>

@@ -31,8 +31,8 @@ function login() {
       password: $('#acct-pass').val()
     },
     success: (data) => {
-      if (data == "login successful") { window.location.href="/home.html"; }  
-      else { $('#login-status').text('Invalid username or password.'); }
+      $('#login-status').text(data);
+      if (data == "Login successful") { window.location.href="/home.html"; }  
     }
   });
 }

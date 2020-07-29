@@ -4,8 +4,22 @@
  * Class: CSC337
  */
 
+* {
+  margin: 0;  
+}
+
+html, body {
+  height: 100%;  
+}
+
+header {
+  height: 20%;
+  background-color: lightblue;  
+}
+
 h1 {
   padding: 10px;
+  color: darkblue;
 }
 
 form {
@@ -19,4 +33,18 @@ label {
 
 .in-field {
   padding: 10px;
+}
+
+#main-content {
+  height: 80%;
+  background-color: lightgreen;
+}
+
+#input-area, #listings-area {
+  float: left;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 5px solid black;
+  border-collapse: collapse;
 }

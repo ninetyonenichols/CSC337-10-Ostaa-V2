@@ -21,3 +21,4 @@ function addItem() {
       seller: $('#seller').val()  
     }
   });
+}

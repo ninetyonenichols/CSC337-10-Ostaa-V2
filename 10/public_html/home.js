@@ -16,7 +16,7 @@ function searchListings() {
   $.ajax({
     url: `/search/items/${keyword}`,
     method: 'GET',
-    success: (data) => buildListingArea(data);
+    success: (data) => { buildListingArea(data) }
   })
 }
 
@@ -27,7 +27,7 @@ function viewListings() {
   $.ajax({
     url: '/get/listings/',
     method: 'GET',
-    success: (data) => buildListingArea(data);
+    success: (data) => { buildListingArea(data) }
   })
 }
 
@@ -38,18 +38,15 @@ function viewPurchases() {
   $.ajax({
     url: '/get/purchases/',
     method: 'GET',
-    success: (data) => buildListingArea(data);
+    success: (data) => { buildListingArea(data) }
   })
 }
 
 /*
  * Creates a new listing for the user.
  */
-function createListings() {
-  $.ajax({
-    url: '/public_html/post.html',
-    method: 'GET'
-  })
+function createListing() {
+  window.location.href="/post.html";
 }
 
 /*
@@ -71,4 +68,15 @@ function buildListingArea(data) {
 function serializeListing(listing) {
   let listingHtml = "Lorem Ipsum";
   return listingHtml;
+}
+
+/*
+ * This function builds the welcome message
+ */
+function buildWelcome() {
+  $.ajax({
+    url: '/welcome',    
+    method: 'GET',
+    success: (data) => { $('#welcome').text(`Welcome ${data}! What would you like to do?`) }
+  })
 }
