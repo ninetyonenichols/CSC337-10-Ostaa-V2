@@ -1,0 +1,30 @@
+{
+  "name": "ostaa2",
+  "version": "1.0.0",
+  "description": "a simple shopping app (now with a usable front-end!)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ninetyonenichols/CSC337-10-Ostaa-V2.git"
+  },
+  "keywords": [
+    "I",
+    "want",
+    "to",
+    "find",
+    "work"
+  ],
+  "author": "Justin Nichols",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ninetyonenichols/CSC337-10-Ostaa-V2/issues"
+  },
+  "homepage": "https://github.com/ninetyonenichols/CSC337-10-Ostaa-V2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.25"
+  }
+}

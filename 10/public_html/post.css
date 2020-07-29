@@ -1,0 +1,22 @@
+/*
+ * This sheet provides style for post.html
+ * Author: Justin Nichols
+ * Class: CSC337
+ */
+
+h1 {
+  padding: 10px;
+}
+
+form {
+  margin: 25px 10px;
+}
+
+label {
+  display: inline-block;
+  width: 130px;
+}
+
+.in-field {
+  padding: 10px;
+}
